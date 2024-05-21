@@ -5,7 +5,6 @@ document.getElementById("Registration").addEventListener("submit",async(e)=>
     name:document.getElementById("username").value,
     email:document.getElementById("email").value,
     password:document.getElementById("password").value,
-    cpassword:document.getElementById("confirm-password").value,
   }
   try {
     const res=await fetch("http://localhost:3000/submit_registration",{
