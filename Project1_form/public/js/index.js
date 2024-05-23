@@ -24,6 +24,17 @@ document.getElementById("Registration").addEventListener("submit",async(e)=>
     alert("An error occurred. Please try again.");
   
   }
- 
- 
 })
+document.addEventListener('DOMContentLoaded', function () {
+  const form = document.getElementById('Registration');
+  form.addEventListener('submit', function (event) {
+      const emailInput = document.getElementById('email');
+      const email = emailInput.value;
+      const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+
+      if (!emailPattern.test(email)) {
+          alert('Please enter a valid email address.');
+          event.preventDefault(); // Prevent form submission
+      }
+  });
+});

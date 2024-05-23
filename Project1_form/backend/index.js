@@ -4,9 +4,9 @@ const cors = require("cors");
 const PORT = process.env.PORT || 3000;
 const User = require("../backend/model/user");
 const app = express();
-
+require("dotenv").config()
 mongoose
-  .connect("mongodb://localhost:27017/BharatIntern", { useNewUrlParser: true, useUnifiedTopology: true })
+  .connect(process.env.URI)
   .then(() => {
     console.log("Connected to MongoDB");
   })
@@ -53,3 +53,4 @@ app.post("/submit_registration", async (req, res) => {
 app.listen(PORT, () => {
   console.log("Server is running on port", PORT);
 });
+
